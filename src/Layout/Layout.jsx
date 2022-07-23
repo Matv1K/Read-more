@@ -5,35 +5,39 @@ import "./Layout.scss";
 const Layout = () => {
     const [readMoreShown, setReadMoreShown] = useState(false);
 
-    const str = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi dsrwer weqr qwer wqer qwerq wer qwerqw erewq erqwer qwer qw erqw erqwerqwerqwerqwer qwerqwe rqw erqwe rqwe rqw erq werqwerqwerqwer qwrqwerqwwwwwwwwwwww qewerrrrrrrrrrr qwre qwerrrrrrrrrrrr';
-    const limit = 200;
+    const str = 'rrrrrr qwre qwerrrrrrrrrrrr asdlkjffffffffffffffffffffffffffffffffffffffffffffffffffffffffff asfjlkdasdfewtwdddddddd asfjkldasfjkdl asfkjdl jkasfld kasfjld asfjlk dkasfd lka sjdfkjasf asdfffffffffffff ';
+    const limit = 150;
+
+    const symbols = [...str];
 
     const handleClick = () => {
         setReadMoreShown(prevState => !prevState);
     }
 
   return (
-    <div style={{width: '352px', borderRadius: '20px', padding: '20px 24px', backgroundColor: '#FFFFFF'}}>
+    <div style={{maxWidth: '352px', borderRadius: '20px', padding: '20px 24px', backgroundColor: '#FFFFFF'}}>
       <div className="section" style={{borderBottom: '1px solid #333', marginBottom: '24px', paddingBottom: '24px'}}>
         
         <h3 style={{marginBottom: '16px', fontSize: '20px', fontWeight: 700, color: '#232134'}}>
           Biography
         </h3>
 
-        <p className="text" style={{ fontSize: 14 }}>
+        <p className="text" style={{ fontSize: 14, marginBottom: '20px' }}>
         {
             readMoreShown ? str : str.substring(0, limit)
         }
         </p>
 
-        <a href='#' onClick={handleClick} style={{textDecoration: 'none', display: 'inline-block', fontSize: 14, color: '#752993', fontWeight: 500, marginBottom: '20px', marginTop: '20px'}}>
+        {
+            symbols.length > limit ? <a href='#' onClick={handleClick} style={{textDecoration: 'none', display: 'inline-block', fontSize: 14, color: '#752993', fontWeight: 500}}>
             {readMoreShown ? 'Hide': 'Read more'}
-        </a>
+        </a> : null
+        } 
 
 
         <div>
           <div className="data" style={{ marginBottom: 20 }}>
-            <h4 style={{marginBottom: '4px',  fontSize: '14px', fontWeight: 600, color: '#232134'}}>
+            <h4 style={{marginBottom: '4px', marginTop: '20px',  fontSize: '14px', fontWeight: 600, color: '#232134'}}>
               Location
             </h4>
             <p className="text" style={{ fontSize: 14 }}>Los angeles</p>
